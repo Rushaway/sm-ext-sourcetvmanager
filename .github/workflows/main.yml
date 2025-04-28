@@ -29,7 +29,7 @@ jobs:
       fail-fast: false
       matrix:
         os:
-          - ubuntu-20.04
+          - ubuntu-24.04
           - windows-latest
 
         sm_version:
@@ -65,7 +65,7 @@ jobs:
             meta_version: "1.11"
             meta_branch: "1.11-dev"
 
-          - os: ubuntu-20.04
+          - os: ubuntu-24.04
             os_short: linux
 
           - os: windows-latest
@@ -91,7 +91,10 @@ jobs:
         run: |
           sudo dpkg --add-architecture i386
           sudo apt-get update
-          sudo apt-get install -y clang g++-multilib
+          sudo apt-get install -y --no-install-recommends \
+            gcc-multilib g++-multilib libstdc++6 lib32stdc++6 \
+            libc6-dev libc6-dev-i386 linux-libc-dev \
+            linux-libc-dev:i386 lib32z1-dev ${{ env.CC }}
           echo "CC=clang" >> $GITHUB_ENV
           echo "CXX=clang++" >> $GITHUB_ENV
 
@@ -183,7 +186,7 @@ jobs:
 
     steps:
       - name: Download artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
 
       - name: Package
         run: |
