@@ -240,3 +240,11 @@ build*/
 vs/
 msvc*/
 *.smx
+
+# Others
+Containerfile
+.venv
+safetyhook
+ambuild
+*.env
+*.ps1
