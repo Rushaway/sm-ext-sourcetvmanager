@@ -6,7 +6,13 @@ projectName = 'sourcetvmanager'
 project = builder.LibraryProject(projectName)
 project.sources += [
   os.path.join(Extension.ext_root, 'src', 'extension.cpp'),
-  os.path.join(Extension.sm_root, 'public', 'smsdk_ext.cpp')
+  os.path.join(Extension.sm_root, 'public', 'smsdk_ext.cpp'),
+  os.path.join(Extension.ext_root, 'src', 'forwards.cpp'),
+  os.path.join(Extension.ext_root, 'src', 'hltvserverwrapper.cpp'),
+  os.path.join(Extension.ext_root, 'src', 'hltvclientwrapper.cpp'),
+  os.path.join(Extension.ext_root, 'src', 'hltvdirectorwrapper.cpp'),
+  os.path.join(Extension.ext_root, 'src', 'natives.cpp'),
+  os.path.join(Extension.ext_root, 'src', 'commonhooks.cpp')
 ]
 
 for sdk_name in Extension.sdks:
