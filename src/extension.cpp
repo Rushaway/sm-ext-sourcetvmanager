@@ -76,8 +76,6 @@ bool SourceTVManager::SDK_OnLoad(char *error, size_t maxlength, bool late)
 	sharesys->AddDependency(myself, "bintools.ext", true, true);
 	sharesys->AddDependency(myself, "sdktools.ext", true, true);
 
-	SM_GET_IFACE(GAMEHELPERS, gamehelpers);
-
 	char conf_error[255];
 	if (!gameconfs->LoadGameConfigFile("sourcetvmanager.games", &g_pGameConf, conf_error, sizeof(conf_error)))
 	{
